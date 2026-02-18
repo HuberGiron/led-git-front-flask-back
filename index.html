@@ -1,0 +1,66 @@
+<!-- python -m http.server 5500 -->
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LED Controller (8x WS2812)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <h1>Control de tira LED (8)</h1>
+        <p class="muted">Servidor local (Flask) → ESP32 consulta estado y actualiza la tira.</p>
+      </div>
+      <div class="badge" id="netBadge">Conectando…</div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Ajustes</h2>
+
+        <div class="field">
+          <label for="color">Color</label>
+          <div class="row">
+            <input id="color" type="color" value="#ff0000" />
+            <div class="code" id="colorHex">#ff0000</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="count">LEDs encendidos: <span class="strong" id="countLabel">8</span>/8</label>
+          <input id="count" type="range" min="0" max="8" step="1" value="8" />
+          <div class="hint">Tip: 0 apaga todo, 8 enciende toda la tira.</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="btnOff">Apagar</button>
+          <button class="btn primary" id="btnSave">Guardar</button>
+        </div>
+
+        <div class="status">
+          <div><span class="muted">rev:</span> <span id="rev">—</span></div>
+          <div><span class="muted">updated:</span> <span id="updatedAt">—</span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Preview (8 LEDs)</h2>
+        <div class="strip" id="strip"></div>
+        <p class="muted small">
+          Esto es solo una vista previa. El ESP32 aplicará el mismo estado al hardware.
+        </p>
+      </section>
+    </main>
+
+    <footer class="foot muted">
+      API: <span class="mono">GET /api/state</span> · <span class="mono">POST /api/state</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
