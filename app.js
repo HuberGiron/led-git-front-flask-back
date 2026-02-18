@@ -1,7 +1,7 @@
 //const API_BASE = "http://172.22.129.142:5000"; // IP de tu PC / servidor backend
 // o "http://127.0.0.1:5000" o "http://localhost:5000" si el front corre en la misma PC y solo lo usas en ese navegador
 
-const API_BASE = "http://led-git-front-flask-back-docker.onrender.com"; // Servidor render
+const API_BASE = "https://led-git-front-flask-back-docker.onrender.com"; // Servidor render
 
 const elColor = document.getElementById("color"); 
 const elHex = document.getElementById("colorHex");
