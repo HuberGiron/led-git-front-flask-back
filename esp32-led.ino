@@ -8,7 +8,8 @@ const char* WIFI_SSID = "TU_SSID";
 const char* WIFI_PASS = "TU_PASSWORD";
 
 // IP de tu PC corriendo Flask (misma red local)
-const char* STATE_URL = "http://192.168.1.50:5000/api/state";
+//const char* STATE_URL = "http://192.168.1.50:5000/api/state";
+const char* STATE_URL = "https://led-git-front-flask-back-docker.onrender.com/api/state";
 
 // WS2812
 #define LED_PIN   5
